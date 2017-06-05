@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.wega.loadingDialog.MainActivity">
+
+
+    <Button
+        android:id="@+id/button_cancel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="加载后直接取消" />
+
+    <Button
+        android:id="@+id/button_success"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="加载成功 默认文字(加载成功)" />
+
+    <Button
+        android:id="@+id/button_fail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="加载失败 默认文字(加载失败)" />
+
+
+    <Button
+        android:id="@+id/button_cancel_custom_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="定义文字方法一 加载后直接取消" />
+
+
+    <Button
+        android:id="@+id/button_success_custom_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="定义文字方法一 审核成功" />
+
+
+    <Button
+        android:id="@+id/button_fail_custom_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="定义文字方法一 审核失败" />
+
+
+    <Button
+        android:id="@+id/button_complete_custom_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="定义文字方法一 审核完成" />
+
+    <Button
+        android:id="@+id/button_success_custom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="定义文字方法二 处理成功" />
+
+    <Button
+        android:id="@+id/button_fail_custom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="定义文字方法二  处理失败" />
+
+
+</LinearLayout>
