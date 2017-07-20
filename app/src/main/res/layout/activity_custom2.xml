@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_custom2"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:orientation="vertical"
+    tools:context="com.wega.loadingDialog.Custom2Activity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="修改文字"
+        android:textSize="13sp"/>
+    <Button
+        android:id="@+id/button_cancel_custom_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="自定义参数方法二 加载后直接取消" />
+
+
+    <Button
+        android:id="@+id/button_success_custom_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="自定义参数方法二 审核成功" />
+
+
+    <Button
+        android:id="@+id/button_fail_custom_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="自定义参数方法二 审核失败" />
+
+
+    <Button
+        android:id="@+id/button_complete_custom_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="自定义参数方法二 审核完成" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="修改文字 延时时间 监听事件"
+        android:textSize="13sp"/>
+
+    <Button
+        android:id="@+id/button_cancel_custom_2_all"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="自定义参数方法二 加载后延时3s消失并弹出toast" />
+
+
+    <Button
+        android:id="@+id/button_success_custom_2_all"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="自定义参数方法二 审核成功延时3s消失并弹出toast" />
+
+
+    <Button
+        android:id="@+id/button_fail_custom_2_all"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="自定义参数方法二 审核失败延时3s消失并弹出toast" />
+
+
+    <Button
+        android:id="@+id/button_complete_custom_2_all"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="自定义参数方法二 审核完成延时3s消失并弹出toast" />
+
+</LinearLayout>

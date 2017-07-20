@@ -7,6 +7,11 @@
     android:orientation="vertical"
     tools:context="com.wega.loadingDialog.MainActivity">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="简单使用"
+        android:textSize="18sp"/>
 
     <Button
         android:id="@+id/button_cancel"
@@ -26,45 +31,22 @@
         android:layout_height="wrap_content"
         android:text="加载失败 默认文字(加载失败)" />
 
-
-    <Button
-        android:id="@+id/button_cancel_custom_2"
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="定义文字方法一 加载后直接取消" />
-
-
-    <Button
-        android:id="@+id/button_success_custom_2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="定义文字方法一 审核成功" />
-
+        android:text="自定义参数"
+        android:textSize="18sp"/>
 
     <Button
-        android:id="@+id/button_fail_custom_2"
+        android:id="@+id/button_custom_1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="定义文字方法一 审核失败" />
-
+        android:text="自定义参数方法一" />
 
     <Button
-        android:id="@+id/button_complete_custom_2"
+        android:id="@+id/button_custom_2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="定义文字方法一 审核完成" />
-
-    <Button
-        android:id="@+id/button_success_custom"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="定义文字方法二 处理成功" />
-
-    <Button
-        android:id="@+id/button_fail_custom"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="定义文字方法二  处理失败" />
-
+        android:text="自定义参数方法二" />
 
 </LinearLayout>
