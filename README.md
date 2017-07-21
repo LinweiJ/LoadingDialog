@@ -71,10 +71,11 @@ loadingDialog.loadFail();
                         Toast.makeText(mActivity, "处理完成或直接延时消失==延时消失", Toast.LENGTH_SHORT).show();
                     }
                 });
+LoadingDialog loadingDialog = builder.create();
 
-mCustomloadingDialog.loadSuccess();  调用  CancelDelayListener.success()
-mCustomloadingDialog.loadFail();  调用  CancelDelayListener.fail()
-mCustomloadingDialog.cancelDelay();  调用  CancelDelayListener.complete()  
+loadingDialog.loadSuccess();  调用  CancelDelayListener.success()
+loadingDialog.loadFail();  调用  CancelDelayListener.fail()
+loadingDialog.cancelDelay();  调用  CancelDelayListener.complete()  
 
   
 //注意 : 传入延时消失事件时,需要添加 dialog.cancel() 才能使加载框消失
