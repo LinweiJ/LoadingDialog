@@ -36,7 +36,7 @@ loadingDialog.loadSuccess();
 loadingDialog.loadFail();
 ```
 
-![loadingDialog.gif](https://github.com/LinweiJ/LoadingDialog/blob/master/loadingDialog_0.gif)
+![loadingDialog.gif](https://github.com/LinweiJ/LoadingDialog/blob/master/screen_shot/loadingDialog_0.gif)
 
 
 ## 自定义参数(文字 延时时间 延时消失事件)
@@ -81,7 +81,7 @@ loadingDialog.cancelDelay();  调用  CancelDelayListener.complete()
 //注意 : 传入延时消失事件时,需要添加 dialog.cancel() 才能使加载框消失
        
 ```
-![loadingDialog.gif](https://github.com/LinweiJ/LoadingDialog/blob/master/loadingDialog_1.gif)
+![loadingDialog.gif](https://github.com/LinweiJ/LoadingDialog/blob/master/screen_shot/loadingDialog_1.gif)
 
 
 ### 方法二:
@@ -130,7 +130,7 @@ loadingDialog.cancelDelay(3000, new CompleteCancelDelayListener() {
 
 
 ```
-![loadingDialog.gif](https://github.com/LinweiJ/LoadingDialog/blob/master/loadingDialog_2.gif)
+![loadingDialog.gif](https://github.com/LinweiJ/LoadingDialog/blob/master/screen_shot/loadingDialog_2.gif)
 
 当然, 方法一 可以和方法二混合使用
 
