@@ -1,5 +1,6 @@
 package com.wega.library.loadingDialog;
 
+import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.Notification;
 import android.content.Context;
@@ -61,6 +62,7 @@ public class LoadingDialog extends Dialog {
         initView();
         //设置默认值
         setup();
+
     }
 
     private void initView() {

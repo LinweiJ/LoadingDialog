@@ -1,6 +1,24 @@
 [![](https://jitpack.io/v/LinweiJ/LoadingDialog.svg)](https://jitpack.io/#LinweiJ/LoadingDialog)
 
-# 如何使用它？
+##1、为何使用它?
+
+开发过程中一个简单的提交表单场景:
+
+1. 提交信息，显示"信息提交中，请稍后..."；
+
+![loadingDialog1.jpg](https://github.com/LinweiJ/LoadingDialog/blob/master/screen_shot/loadingDialog_0.gif)
+
+2. 信息提交成功，显示"信息提交成功"；
+
+![loadingDialog1.jpg](https://github.com/LinweiJ/LoadingDialog/blob/master/screen_shot/loadingDialog_0.gif)
+
+3. 等待 2 s，返回首页。
+
+![loadingDialog1.jpg](https://github.com/LinweiJ/LoadingDialog/blob/master/screen_shot/loadingDialog_0.gif)
+
+## 2、如何引用它？
+
+[![](https://jitpack.io/v/LinweiJ/LoadingDialog.svg)](https://jitpack.io/#LinweiJ/LoadingDialog)
 
 先在 project的build.gradle  添加:
 ```
@@ -20,8 +38,9 @@ dependencies {
 
 
 
+## 3、全新使用
 
-## 简单使用
+### 3.1、开始显示处理
 
 ```java
 LoadingDialog loadingDialog = new LoadingDialog(context);
@@ -36,12 +55,7 @@ loadingDialog.loadSuccess();
 loadingDialog.loadFail();
 ```
 
-![loadingDialog.gif](https://github.com/LinweiJ/LoadingDialog/blob/master/screen_shot/loadingDialog_0.gif)
-
-
-## 自定义参数(文字 延时时间 延时消失事件)
-
-### 方法一:
+### 3.2、结果显示处理
 
 ```java
 //自定义参数方法一:通过LoadingDialog.Builder获得LoadingDialog时,定义参数
@@ -81,10 +95,8 @@ loadingDialog.cancelDelay();  调用  CancelDelayListener.complete()
 //注意 : 传入延时消失事件时,需要添加 dialog.cancel() 才能使加载框消失
        
 ```
-![loadingDialog.gif](https://github.com/LinweiJ/LoadingDialog/blob/master/screen_shot/loadingDialog_1.gif)
+### 3.3、结果显示处理
 
-
-### 方法二:
 ```java
 LoadingDialog loadingDialog = new LoadingDialog(context);
 //显示加载框
@@ -130,14 +142,46 @@ loadingDialog.cancelDelay(3000, new CompleteCancelDelayListener() {
 
 
 ```
+### 3.4、其他参数
+
+```
+
+
+
+```
+
+### 3.4 、效果图
+
 ![loadingDialog.gif](https://github.com/LinweiJ/LoadingDialog/blob/master/screen_shot/loadingDialog_2.gif)
 
-当然, 方法一 可以和方法二混合使用
+## 4. 快速构建Builder
+
+#### 4.1、Simple模式
+
+#### 4.2、Lottie模式
+
+ 
+
+## 5、更多
+
+更多细节可以参考 demo/ 示例
+
+
+
+## 6、版本0.2.0的改进思路
+
+1. 对0.1.0进行重构；
+2. 针对LoadingDialog使用场景，增加三个接入接口（开始显示处理，结果显示处理，消失处理）；
+3. 对于三个接入接口，我们可以更加自由地定义效果；
+4. 针对简单使用原则（懒），提供Simple、Lottie两种快速构建的Builder（也提供一些定制化方法）。
+5. 主要还是自己在0.1.0使用过程的一些体验，进行的改进，希望也对你们有所帮助。
+
+
 
 # License
 
 ```
-Copyright 2017 LinWeiJia
+Copyright 2017~2018 LinWeiJia
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
