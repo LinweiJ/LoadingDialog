@@ -46,4 +46,8 @@ public class SimpleLoadingDialog extends LoadingDialog {
     }
 
 
+    @Override
+    public void dismissDelay(long delayMillis, DismissDelayEndCallback callback) {
+        super.dismissDelay(delayMillis, callback);
+    }
 }
