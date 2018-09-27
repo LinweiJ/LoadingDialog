@@ -1,21 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:background="@drawable/shape_bg_loading_dialog"
     android:gravity="center_horizontal"
-    android:minHeight="@dimen/dp_120_loading_dialog"
-    android:minWidth="@dimen/dp_120_loading_dialog"
-    android:padding="@dimen/dp_8_loading_dialog"
-    android:orientation="vertical">
+    android:minWidth="@dimen/dp_150_loading_dialog"
+    android:minHeight="@dimen/dp_150_loading_dialog"
+    android:orientation="vertical"
+    android:padding="@dimen/dp_8_loading_dialog">
 
-    <ProgressBar
-        android:id="@+id/pb_loading_progress"
-        style="@style/style_loading_dialog_ProgressBar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="2" />
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/lav_loading"
+        android:layout_width="@dimen/dp_64_loading_dialog"
+        android:layout_height="@dimen/dp_64_loading_dialog"
+        android:layout_weight="2"
+        app:lottie_autoPlay="true"
+        app:lottie_fileName="loading_three_ball.json"
+        app:lottie_loop="true" />
 
     <TextView
         android:id="@+id/tv_loading_dialog_text"
@@ -26,10 +29,10 @@
         android:ellipsize="end"
         android:gravity="center_horizontal"
         android:maxLines="2"
-        android:paddingLeft="@dimen/dp_8_loading_dialog"
-        android:paddingRight="@dimen/dp_8_loading_dialog"
+        android:paddingLeft="@dimen/dp_4_loading_dialog"
+        android:paddingRight="@dimen/dp_4_loading_dialog"
         android:textColor="@color/color_white_loading_dialog"
         android:textSize="@dimen/sp_14_loading_dialog"
-        tools:text="111111111111111111111111111111111111" />
+        tools:text="mLavLoadingmLavLoadingmLavLoadingmLavL" />
 
 </LinearLayout>

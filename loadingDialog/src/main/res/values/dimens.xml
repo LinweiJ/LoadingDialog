@@ -3,5 +3,7 @@
     <dimen name="dp_4_loading_dialog">4dp</dimen>
     <dimen name="sp_14_loading_dialog">14sp</dimen>
     <dimen name="dp_8_loading_dialog">8dp</dimen>
-    <dimen name="dp_120_loading_dialog">100dp</dimen>
+    <dimen name="dp_64_loading_dialog">64dp</dimen>
+    <dimen name="dp_120_loading_dialog">120dp</dimen>
+    <dimen name="dp_150_loading_dialog">150dp</dimen>
 </resources>
