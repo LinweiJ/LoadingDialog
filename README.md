@@ -4,17 +4,13 @@
 
 开发过程中一个简单的提交表单场景:
 
-1. 提交信息，显示"信息提交中，请稍后..."；
+1、提交信息，显示"信息提交中，请稍后..."；
 
-![loadingDialog1.jpg](https://github.com/LinweiJ/LoadingDialog/blob/master/screen_shot/loadingDialog_0.gif)
+2、信息提交成功，显示"信息提交成功"；
 
-2. 信息提交成功，显示"信息提交成功"；
+3、等待 2 s，返回上一页面。
 
-![loadingDialog1.jpg](https://github.com/LinweiJ/LoadingDialog/blob/master/screen_shot/loadingDialog_0.gif)
-
-3. 等待 2 s，返回首页。
-
-![loadingDialog1.jpg](https://github.com/LinweiJ/LoadingDialog/blob/master/screen_shot/loadingDialog_0.gif)
+这时，就需要使用加载框了。
 
 ## 2、如何引用它？
 
@@ -32,139 +28,119 @@ allprojects {
 然后在module的build.gradle 添加:
 ```
 dependencies {
-	        compile 'com.github.LinweiJ:LoadingDialog:0.1.0'
-	}
+	        compile 'com.github.LinweiJ:LoadingDialog:0.2.0'
+}
 ```
 
 
 
 ## 3、全新使用
 
-### 3.1、开始显示处理
+重新设计后 使用更简洁了
+
+### 3.1、Simple
+
+#### 3.1.1 方法及参数
+
+| 方法                                       | 描述                    | 参数           |
+| ---------------------------------------- | --------------------- | ------------ |
+| SimpleLoadingDialog(@NonNull Context context) | 创建SimpleLoadingDialog | Context      |
+| showFirst(String message)                | 第一次显示                 | 显示文字内容       |
+| showResult(String message)               | 显示结果（切换文字而已）          | 显示文字内容       |
+| dismissDelay(long delayMillis, DismissDelayEndCallback callback) | 延时消失                  | 延时消失时间，消失时回调 |
+
+#### 3.1.2 使用（try it）
 
 ```java
-LoadingDialog loadingDialog = new LoadingDialog(context);
-//或 LoadingDialog loadingDialog = new LoadingDialog.Builder(context).create();
+//SimpleLoadingDialog
+SimpleLoadingDialog  mSimpleLoadingDialog = new SimpleLoadingDialog(this);
 //显示加载框
-loadingDialog.loading();
-//直接取消加载框
-loadingDialog.cancel();
-//显示加载成功后取消加载框
-loadingDialog.loadSuccess();
-//显示加载失败后取消加载框
-loadingDialog.loadFail();
+mSimpleLoadingDialog.showFirst("加载中.....");
+//模拟延时操作
+mHandler.postDelayed(new Runnable() {
+    @Override
+    public void run() {
+       //显示结果
+       mSimpleLoadingDialog.showResult("加载6秒后加载成功");
+	   //延时消失
+       mSimpleLoadingDialog.dismissDelay(5000, new LoadingDialog.DismissDelayEndCallback() {
+       	@Override
+       	public void onEnd(LoadingDialog dialog) {
+         	Toast.makeText(mActivity, "加载成功显示5秒消失了", Toast.LENGTH_SHORT).show();
+        	}
+        });
+    }
+}, 6000);
 ```
 
-### 3.2、结果显示处理
+#### 3.1.3 效果图
+
+
+
+### 3.2、Lottie
+
+#### 3.2.1 方法及参数
+
+| 方法                                       | 描述                    | 参数                                 |
+| ---------------------------------------- | --------------------- | ---------------------------------- |
+| LottieLoadingDialog(@NonNull Context context) | 创建LottieLoadingDialog | Context context                    |
+| showFirst(String message, int typeLottie, @Nullable String jsonFileName) | 第一次显示                 | 显示文字内容，Lottie动画Type，Lottie动画文件（可空） |
+| showResult(String message, int typeLottie, @Nullable String jsonFileName) | 显示结果（切换文字及Lottie动画而已） | 显示文字内容，Lottie动画Type，Lottie动画文件（可空） |
+| dismissDelay(long delayMillis, DismissDelayEndCallback callback) | 延时消失                  | 延时消失时间，消失时回调                       |
+
+
+
+#### 3.2.1 使用（try it）
 
 ```java
-//自定义参数方法一:通过LoadingDialog.Builder获得LoadingDialog时,定义参数
-        LoadingDialog.Builder builder = new LoadingDialog.Builder(this);
-        builder.setLoadingText("处理中...")
-                .setFailText("处理失败")
-                .setSuccessText("处理成功")
-          		//设置延时5000ms才消失,可以不设置默认1000ms
-                .setDefaultDelayMillis(5000)
-          		//设置默认延时消失事件, 可以不设置默认不调用延时消失事件
-                .setCancelDelayListener(new LoadingDialog.CancelDelayListener() {
-                    @Override
-                    public void success(LoadingDialog dialog) {
-                        dialog.cancel();//加载框消失
-                        Toast.makeText(mActivity, "处理成功==延时消失", Toast.LENGTH_SHORT).show();
-                    }
-
-                    @Override
-                    public void fail(LoadingDialog dialog) {
-                        dialog.cancel();//加载框消失
-                        Toast.makeText(mActivity, "处理失败==延时消失", Toast.LENGTH_SHORT).show();
-                    }
-
-                    @Override
-                    public void complete(LoadingDialog dialog) {
-                        dialog.cancel();//加载框消失
-                        Toast.makeText(mActivity, "处理完成或直接延时消失==延时消失", Toast.LENGTH_SHORT).show();
-                    }
-                });
-LoadingDialog loadingDialog = builder.create();
-
-loadingDialog.loadSuccess();  调用  CancelDelayListener.success()
-loadingDialog.loadFail();  调用  CancelDelayListener.fail()
-loadingDialog.cancelDelay();  调用  CancelDelayListener.complete()  
-
-  
-//注意 : 传入延时消失事件时,需要添加 dialog.cancel() 才能使加载框消失
-       
-```
-### 3.3、结果显示处理
-
-```java
-LoadingDialog loadingDialog = new LoadingDialog(context);
+//LottieLoadingDialog
+LottieLoadingDialog  mLottieLoadingDialog = new LottieLoadingDialog(this);
 //显示加载框
-loadingDialog.loading("处理中...");
-//显示处理成功后取消加载框
-loadingDialog.loadSuccess("处理成功");
-//显示处理失败后取消加载框
-loadingDialog.loadFail("处理失败");
-//显示处理完成后取消加载框
-loadingDialog.loadComplete("处理完成");
-
-//显示审核成功后延时3s消失 调用SuccessCancelDelayListener.success()
- loadingDialog.loadSuccess("审核成功", 3000, new SuccessCancelDelayListener() {
-                            @Override
-                            public void success(LoadingDialog dialog) {
-                                dialog.cancel();//加载框消失
-                            }
-                        });
-//显示审核失败后延时3s消失 调用SuccessCancelDelayListener.fail()
-loadingDialog.loadFail("审核失败", 3000, new FailCancelDelayListener() {
-                            @Override
-                            public void fail(LoadingDialog dialog) {
-                                dialog.cancel();//加载框消失
-                                Toast.makeText(mActivity, "审核失败==延时3s消失", Toast.LENGTH_SHORT).show();
-                            }
-                        });
-//显示审核完成后延时3s消失 调用CompleteCancelDelayListener.complete()
-loadingDialog.loadComplete("审核完成", 3000, new CompleteCancelDelayListener() {
-                            @Override
-                            public void complete(LoadingDialog dialog) {
-                                dialog.cancel();//加载框消失
-                                Toast.makeText(mActivity, "审核完成==延时3s消失", Toast.LENGTH_SHORT).show();
-                            }
-                        });//显示处理成功后延时3s消失并弹出toast
-//延时3s消失 调用CompleteCancelDelayListener.complete()
-loadingDialog.cancelDelay(3000, new CompleteCancelDelayListener() {
-                            @Override
-                            public void complete(LoadingDialog dialog) {
-                                dialog.cancel();//加载框消失
-                            }
-                        });
-
-
-
-```
-### 3.4、其他参数
+mLottieLoadingDialog.showFirst("加载中...", TYPE_LOADING_1, null);
+new Handler().postDelayed(new Runnable() {
+  @Override
+  public void run() {
+  	//显示结果
+    mLottieLoadingDialog.showResult("加载4秒后加载成功...", TYPE_SUCCESS_1, null);
+    //延时消失
+    mLottieLoadingDialog.dismissDelay(2000, new LoadingDialog.DismissDelayEndCallback() {
+        @Override
+        public void onEnd(LoadingDialog dialog) {
+          Toast.makeText(mActivity, "加载成功显示2秒消失了", Toast.LENGTH_LONG).show();
+        }
+    });
+  }
+ }, 4000);
 
 ```
 
+#### 3.1.2 效果图
 
 
+
+### 3.3、其他
+
+#### 3.3.1 、不可取消
+
+```java
+//跟Dialog一样样的
+mLottieLoadingDialog.setCancelable(false);
+mLottieLoadingDialog.setCanceledOnTouchOutside(false);
 ```
 
-### 3.4 、效果图
+#### 3.3.2 、效果图
 
-![loadingDialog.gif](https://github.com/LinweiJ/LoadingDialog/blob/master/screen_shot/loadingDialog_2.gif)
 
-## 4. 快速构建Builder
 
-#### 4.1、Simple模式
+## 4. 自定义
 
-#### 4.2、Lottie模式
+#### 
 
  
 
 ## 5、更多
 
-更多细节可以参考 demo/ 示例
+更多细节可以参考 app/ 示例
 
 
 

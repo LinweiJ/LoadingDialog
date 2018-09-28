@@ -10,43 +10,39 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="简单使用"
+        android:text="Simple"
         android:textSize="18sp"/>
 
     <Button
-        android:id="@+id/button_cancel"
+        android:id="@+id/button_simple"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="加载后直接取消" />
+        android:text="try it" />
 
-    <Button
-        android:id="@+id/button_success"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="加载成功 默认文字(加载成功)" />
 
-    <Button
-        android:id="@+id/button_fail"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="加载失败 默认文字(加载失败)" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="自定义参数"
+        android:text="Lottie"
         android:textSize="18sp"/>
 
     <Button
-        android:id="@+id/button_custom_1"
+        android:id="@+id/button_Lottie"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="自定义参数方法一" />
+        android:text="try it" />
 
     <Button
-        android:id="@+id/button_custom_2"
+        android:id="@+id/button_Lottie_can_not_be_canceled_outside"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="自定义参数方法二" />
+        android:text="setCanceledOnTouchOutside=false" />
+
+    <Button
+        android:id="@+id/button_Lottie_can_not_be_canceled"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="setCancelable=false" />
 
 </LinearLayout>
