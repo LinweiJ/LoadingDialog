@@ -1,1 +1,1 @@
-include ':demo', ':library', ':loadingDialog'
+include ':demo', ':loadingDialog', ':lottieLoadingDialog'

@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-
-    <!-- 加载框背景色及progressbar颜色-->
-    <color name="color_loading_progressbar">#cdcdcd</color>
-    <color name="color_bg_loading_dialog">#6a000000</color>
-    <color name="color_text_loading_dialog">#cdcdcd</color>
-</resources>

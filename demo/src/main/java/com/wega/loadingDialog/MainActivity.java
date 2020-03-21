@@ -1,6 +1,5 @@
 package com.wega.loadingDialog;
 
-import android.content.Intent;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -8,16 +7,17 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.lwj.widget.loadingdialog.LoadingDialog;
-import com.lwj.widget.loadingdialog.LottieLoadingDialog;
 import com.lwj.widget.loadingdialog.SimpleLoadingDialog;
+import com.lwj.widget.lottieloadingdialog.LottieLoadingDialog;
 
+import static com.airbnb.lottie.LottieDrawable.INFINITE;
+import static com.lwj.widget.lottieloadingdialog.LottieLoadingDialog.LLD_TYPE_CUSTOM;
+import static com.lwj.widget.lottieloadingdialog.LottieLoadingDialog.LLD_TYPE_FAIL_1;
+import static com.lwj.widget.lottieloadingdialog.LottieLoadingDialog.LLD_TYPE_LOADING_1;
+import static com.lwj.widget.lottieloadingdialog.LottieLoadingDialog.LLD_TYPE_LOADING_2;
+import static com.lwj.widget.lottieloadingdialog.LottieLoadingDialog.LLD_TYPE_SUCCESS_1;
+import static com.lwj.widget.lottieloadingdialog.LottieLoadingDialog.LLD_TYPE_SUCCESS_2;
 
-import static com.lwj.widget.loadingdialog.LottieLoadingDialog.TYPE_CUSTOM;
-import static com.lwj.widget.loadingdialog.LottieLoadingDialog.TYPE_FAIL_1;
-import static com.lwj.widget.loadingdialog.LottieLoadingDialog.TYPE_LOADING_1;
-import static com.lwj.widget.loadingdialog.LottieLoadingDialog.TYPE_LOADING_2;
-import static com.lwj.widget.loadingdialog.LottieLoadingDialog.TYPE_SUCCESS_1;
-import static com.lwj.widget.loadingdialog.LottieLoadingDialog.TYPE_SUCCESS_2;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -69,12 +69,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.button_Lottie:
                 mLottieLoadingDialog.setCancelable(true);
                 //显示加载框
-                mLottieLoadingDialog.showFirst("加载中...", TYPE_LOADING_1, null);
+                mLottieLoadingDialog.showFirst("加载中...", LLD_TYPE_LOADING_1, null,INFINITE);
                 new Handler().postDelayed(new Runnable() {
                     @Override
                     public void run() {
                         //显示结果
-                        mLottieLoadingDialog.showResult("加载4秒后加载成功...", TYPE_SUCCESS_1, null);
+                        mLottieLoadingDialog.showResult("加载4秒后加载成功...", LLD_TYPE_SUCCESS_1, null,0);
                         //延时消失
                         mLottieLoadingDialog.dismissDelay(2000, new LoadingDialog.DismissDelayEndCallback() {
                             @Override
@@ -88,12 +88,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.button_Lottie_can_not_be_canceled_outside:
                 mLottieLoadingDialog.setCanceledOnTouchOutside(false);
                 //显示加载框
-                mLottieLoadingDialog.showFirst("加载中...", TYPE_LOADING_2, null);
+                mLottieLoadingDialog.showFirst("加载中...", LLD_TYPE_LOADING_2, null,INFINITE);
                 new Handler().postDelayed(new Runnable() {
                     @Override
                     public void run() {
                         //显示结果
-                        mLottieLoadingDialog.showResult("加载8秒后加载成功...", TYPE_SUCCESS_2, null);
+                        mLottieLoadingDialog.showResult("加载8秒后加载成功...", LLD_TYPE_SUCCESS_2, null,1);
                         //延时消失
                         mLottieLoadingDialog.dismissDelay(5000, new LoadingDialog.DismissDelayEndCallback() {
                             @Override
@@ -107,12 +107,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.button_Lottie_can_not_be_canceled:
                 mLottieLoadingDialog.setCancelable(false);
                 //显示加载框
-                mLottieLoadingDialog.showFirst("加载中...", TYPE_CUSTOM, "loading_plane.json");
+                mLottieLoadingDialog.showFirst("加载中...", LLD_TYPE_CUSTOM, "loading_plane.json",INFINITE);
                 new Handler().postDelayed(new Runnable() {
                     @Override
                     public void run() {
                         //显示结果
-                        mLottieLoadingDialog.showResult("加载10秒后加载失败...", TYPE_FAIL_1, null);
+                        mLottieLoadingDialog.showResult("加载10秒后加载失败...", LLD_TYPE_FAIL_1, null,0);
                         //延时消失
                         mLottieLoadingDialog.dismissDelay(3000, new LoadingDialog.DismissDelayEndCallback() {
                             @Override
@@ -123,7 +123,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     }
                 }, 10000);
                 break;
-
 
         }
     }
