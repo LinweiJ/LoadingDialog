@@ -73,7 +73,7 @@ mHandler.postDelayed(new Runnable() {
 
 #### 3.1.3 效果图
 
-
+![loadingDialog.gif](https://github.com/LinweiJ/LoadingDialog/blob/master/screen_shot/ld_3_1.gif)
 
 ### 3.2、Lottie
 
@@ -88,7 +88,7 @@ mHandler.postDelayed(new Runnable() {
 
 
 
-#### 3.2.1 使用（try it）
+#### 3.2.2 使用（try it）
 
 ```java
 //LottieLoadingDialog
@@ -112,9 +112,9 @@ new Handler().postDelayed(new Runnable() {
 
 ```
 
-#### 3.1.2 效果图
+#### 3.2.3 效果图
 
-
+![loadingDialog.gif](https://github.com/LinweiJ/LoadingDialog/blob/master/screen_shot/ld_3_2.gif)
 
 ### 3.3、其他
 
@@ -128,7 +128,10 @@ mLottieLoadingDialog.setCanceledOnTouchOutside(false);
 
 #### 3.3.2 、效果图
 
-#### 3.3.2 、立即消失
+![loadingDialog.gif](https://github.com/LinweiJ/LoadingDialog/blob/master/screen_shot/ld_3_3.gif)
+
+
+#### 3.3.3 、立即消失
 
 ```java
 //跟Dialog一样样的
