@@ -26,7 +26,10 @@ allprojects {
 然后在module的build.gradle 添加:
 ```
 dependencies {
-	        implementation 'com.github.LinweiJ:LoadingDialog:0.2.0'
+	        implementation 'com.github.LinweiJ.LoadingDialog:loadingDialog:0.2.0'
+	        //使用LottieLoadingDialog,需另外添加
+            implementation 'com.github.LinweiJ.LoadingDialog:lottieLoadingDialog:0.2.0'
+            implementation 'com.airbnb.android:lottie:2.7.0'	        
 }
 ```
 
@@ -94,12 +97,12 @@ mHandler.postDelayed(new Runnable() {
 //LottieLoadingDialog
 LottieLoadingDialog  mLottieLoadingDialog = new LottieLoadingDialog(this);
 //显示加载框
-mLottieLoadingDialog.showFirst("加载中...", TYPE_LOADING_1, null, INFINITE);
+mLottieLoadingDialog.showFirst("加载中...", LLD_TYPE_LOADING_1, null, INFINITE);
 new Handler().postDelayed(new Runnable() {
   @Override
   public void run() {
   	//显示结果
-    mLottieLoadingDialog.showResult("加载4秒后加载成功...", TYPE_SUCCESS_1, null, 0);
+    mLottieLoadingDialog.showResult("加载4秒后加载成功...", LLD_TYPE_SUCCESS_1, null, 0);
     //延时消失
     mLottieLoadingDialog.dismissDelay(2000, new LoadingDialog.DismissDelayEndCallback() {
         @Override
@@ -218,9 +221,11 @@ public class SimpleLoadingDialog extends LoadingDialog {
 
 更多细节可以参考 demo/ 示例
 
+## 6、使用到的第三方库
 
+-  [lottie](https://github.com/airbnb/lottie-android)
 
-## 6、版本0.2.0的改进思路
+## 7、版本0.2.0的改进思路
 
 1. 对0.1.0进行重构；
 2. 针对LoadingDialog使用场景，增加三个接入接口（开始显示处理，结果显示处理，消失处理）；
