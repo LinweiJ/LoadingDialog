@@ -21,13 +21,13 @@ allprojects {
 			...
 			maven { url "https://jitpack.io" }
 		}
-	}
+}
 ```
 然后在module的build.gradle 添加:
 ```
 dependencies {
-	        implementation 'com.github.LinweiJ.LoadingDialog:loadingDialog:0.2.0'
-	        //使用LottieLoadingDialog,需另外添加
+            implementation 'com.github.LinweiJ.LoadingDialog:loadingDialog:0.2.0'
+            //使用LottieLoadingDialog,需另外添加
             implementation 'com.github.LinweiJ.LoadingDialog:lottieLoadingDialog:0.2.0'
             implementation 'com.airbnb.android:lottie:2.7.0'	        
 }
